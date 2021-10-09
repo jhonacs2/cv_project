@@ -1,13 +1,16 @@
-import { Grid } from '@mui/material';
-import React from 'react';
-import { HeaderAppBar } from './components/ui/HeaderAppBar';
+import React, { useReducer } from 'react';
+import { MainCv } from './components/ui/MainCv';
+
+// import MainCv from './components/ui/MainCv';
+
+import { InfoContext } from './reducer/InfoContext';
+import { personInfoReducer } from './reducer/personInfoReducer';
 
 export const App = () => {
+  const [info, dispatch] = useReducer(personInfoReducer, {});
   return (
-    <Grid container direction='column'>
-      <Grid item>
-        <HeaderAppBar />
-      </Grid>
-    </Grid>
+    <InfoContext.Provider value={{ info, dispatch }}>
+      <MainCv />
+    </InfoContext.Provider>
   );
 };

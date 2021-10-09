@@ -1,4 +1,4 @@
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import React from 'react';
 

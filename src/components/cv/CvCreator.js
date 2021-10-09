@@ -1,8 +1,10 @@
 import { Grid, TextField } from '@mui/material';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from '../../hooks/userForm';
+import { InfoContext } from '../../reducer/InfoContext';
 
 export const CvCreator = () => {
+  const { dispatch } = useContext(InfoContext);
   const [
     { name, lastName, title, address, phoneNumber, email },
     handleInputChange,
@@ -14,6 +16,13 @@ export const CvCreator = () => {
     phoneNumber: '',
     email: '',
   });
+
+  useEffect(() => {
+    dispatch({
+      type: 'CHANGUE_INFO',
+      payload: { name, lastName, title, address, phoneNumber, email },
+    });
+  }, [name, lastName, title, address, phoneNumber, email]);
 
   return (
     <Grid item container direction='column' p={2}>

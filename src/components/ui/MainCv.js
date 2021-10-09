@@ -12,6 +12,7 @@ export const MainCv = () => {
     phone: '',
     email: '',
   });
+  const [experience, setExperience] = useState([]);
   return (
     <div>
       <Grid container direction='column'>
@@ -24,6 +25,8 @@ export const MainCv = () => {
             <CvCreator
               setPersonalInfo={setPersonalInfo}
               personalInfo={personalInfo}
+              experience={experience}
+              setExperience={setExperience}
             />
           </Grid>
           <Grid item sm={5}>

@@ -1,5 +1,5 @@
 import { Grid, TextField, Container } from '@mui/material';
-import React, { useCallback, useContext, useEffect } from 'react';
+import React from 'react';
 import { useForm } from '../../hooks/userForm';
 
 export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
@@ -16,7 +16,6 @@ export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
   });
 
   const handleInputInfor = (e) => {
-    console.log(e.target.name);
     setPersonalInfo({
       ...personalInfo,
       [e.target.name]: e.target.value,

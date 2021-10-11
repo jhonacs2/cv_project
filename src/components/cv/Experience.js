@@ -1,12 +1,8 @@
 import { Button, Container, Grid } from '@mui/material';
 import React from 'react';
+import { numberRandom } from '../../utils/utils';
 
 import { NewExperience } from './NewExperience';
-
-const numberRandom = () => {
-  const myNumeroAleatorio = Math.floor(Math.random() * 10000001);
-  return myNumeroAleatorio;
-};
 
 export const Experience = ({ experience, setExperience }) => {
   const handleInputExperience = () => {
@@ -22,7 +18,6 @@ export const Experience = ({ experience, setExperience }) => {
   };
 
   const handleInforExperience = (id, data) => {
-    console.log(data);
     setExperience(experience.map((exp) => (exp.id === id ? data : exp)));
   };
 
@@ -36,7 +31,6 @@ export const Experience = ({ experience, setExperience }) => {
           <NewExperience
             key={exp.id}
             exp={exp}
-            handleInputExperience={handleInputExperience}
             handleInforExperience={handleInforExperience}
           />
         ))}
@@ -47,7 +41,7 @@ export const Experience = ({ experience, setExperience }) => {
           color='success'
           onClick={handleInputExperience}
         >
-          Add
+          Add New Experience
         </Button>
       </Grid>
     </Container>

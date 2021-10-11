@@ -2,49 +2,41 @@ import { Button, Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from '../../hooks/userForm';
 
-export const NewExperience = ({ exp, handleInforExperience }) => {
-  const [{ position, company, city, from, to }, handleInputChange] = useForm({
-    position: '',
-    company: '',
+export const NewEducation = ({ edu, handleInfoEducation }) => {
+  const [
+    { universityname, city, degree, subject, from, to },
+    handleInputChange,
+  ] = useForm({
+    universityname: '',
     city: '',
+    degree: '',
+    subject: '',
     from: '',
     to: '',
   });
   const handleExperience = () => {
     const newData = {
-      id: exp.id,
-      position,
-      company,
+      id: edu.id,
+      universityname,
       city,
+      degree,
+      subject,
       from,
       to,
     };
-    handleInforExperience(exp.id, newData);
+    handleInfoEducation(edu.id, newData);
   };
-
   return (
     <>
       <Grid item xs={8} mt={1}>
         <TextField
           fullWidth
           id='standard-basic'
-          label='Position'
+          label='University Name'
           variant='standard'
           autoComplete='off'
-          name='position'
-          value={position}
-          onChange={handleInputChange}
-        />
-      </Grid>
-      <Grid item xs={8}>
-        <TextField
-          fullWidth
-          id='standard-basic'
-          label='Company'
-          variant='standard'
-          autoComplete='off'
-          name='company'
-          value={company}
+          name='universityname'
+          value={universityname}
           onChange={handleInputChange}
         />
       </Grid>
@@ -57,6 +49,30 @@ export const NewExperience = ({ exp, handleInforExperience }) => {
           autoComplete='off'
           name='city'
           value={city}
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item xs={8}>
+        <TextField
+          fullWidth
+          id='standard-basic'
+          label='Degree'
+          variant='standard'
+          autoComplete='off'
+          name='degree'
+          value={degree}
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item xs={8}>
+        <TextField
+          fullWidth
+          id='standard-basic'
+          label='Subject'
+          variant='standard'
+          autoComplete='off'
+          name='subject'
+          value={subject}
           onChange={handleInputChange}
         />
       </Grid>
@@ -91,7 +107,7 @@ export const NewExperience = ({ exp, handleInforExperience }) => {
           color='info'
           onClick={handleExperience}
         >
-          Add Experience
+          Add Education
         </Button>
       </Grid>
     </>

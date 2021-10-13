@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import React, { useState } from 'react';
 import { CvCreator } from '../cv/CvCreator';
 import { CvPreview } from '../cv/CvPreview';
@@ -21,20 +21,24 @@ export const MainCv = () => {
         <Grid item>
           <HeaderAppBar />
         </Grid>
-        <Grid item container justifyContent='center'>
+        <Grid item container justifyContent='center' spacing={1}>
           <Grid item xs={false} sm={false} md={1} />
-          <Grid item xs={12} sm={12} md={5}>
-            <CvCreator
-              setPersonalInfo={setPersonalInfo}
-              personalInfo={personalInfo}
-              experience={experience}
-              setExperience={setExperience}
-              education={education}
-              setEducation={setEducation}
-            />
+          <Grid item xs={12} sm={12} md={5} mt={2}>
+            <Paper>
+              <CvCreator
+                setPersonalInfo={setPersonalInfo}
+                personalInfo={personalInfo}
+                experience={experience}
+                setExperience={setExperience}
+                education={education}
+                setEducation={setEducation}
+              />
+            </Paper>
           </Grid>
-          <Grid item xs={12} sm={12} md={5} p={2}>
-            <CvPreview />
+          <Grid item xs={12} sm={12} md={5} mt={2}>
+            <Paper>
+              <CvPreview personalInfo={personalInfo} />
+            </Paper>
           </Grid>
           <Grid item xs={false} sm={false} md={1} />
         </Grid>

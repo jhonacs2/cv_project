@@ -2,7 +2,8 @@ import { Divider, Grid, Typography } from '@mui/material';
 
 import React from 'react';
 
-export const CvPreview = () => {
+export const CvPreview = ({ personalInfo }) => {
+  console.log(personalInfo);
   return (
     <Grid item container p={2} sm={12}>
       <Grid
@@ -12,10 +13,10 @@ export const CvPreview = () => {
         p={2}
       >
         <Typography variant='h3' component='div'>
-          Jhonatan Soto
+          {personalInfo.name} {personalInfo.lastName}
         </Typography>
         <Typography variant='h5' component='div'>
-          Senior Web Developer
+          {personalInfo.title}
         </Typography>
       </Grid>
 
@@ -35,7 +36,31 @@ export const CvPreview = () => {
         </Typography>
       </Grid>
       <Grid item sm={3} p={2}>
-        <h1>Hola Chi</h1>
+        <Typography variant='h6' fontWeight={600} fontSize={19}>
+          Personal Details
+        </Typography>
+        <div>
+          <Typography paragraph={true} fontWeight={'bold'} mb={0}>
+            Address
+          </Typography>
+          <Typography paragraph={true} mb={0}>
+            {personalInfo.address}
+          </Typography>
+        </div>
+        <div>
+          <Typography paragraph={true} fontWeight={'bold'} mb={0}>
+            Phone Number
+          </Typography>
+          <Typography paragraph={true} mb={0}>
+            {personalInfo.phone}
+          </Typography>
+        </div>
+        <div>
+          <Typography paragraph={true} fontWeight={'bold'} mb={0}>
+            Email
+          </Typography>
+          <Typography paragraph={true}>{personalInfo.email}</Typography>
+        </div>
       </Grid>
       <Grid item sm={9} p={2}>
         <Typography variant='h5'>Experience</Typography>
@@ -69,6 +94,29 @@ export const CvPreview = () => {
               Senior Web Developer
             </Typography>
             <Typography paragraph={true}>Facebook Inc</Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item sm={9} p={2}>
+        <Typography variant='h5'>Education</Typography>
+        <Divider></Divider>
+        <Grid container>
+          <Grid item sm={4}>
+            <p>2008 - 2010</p>
+          </Grid>
+          <Grid item sm={8}>
+            <Typography
+              paragraph={true}
+              mt={2}
+              mb={0}
+              style={{ fontWeight: 600 }}
+            >
+              Universisad del Valle, La Paz
+            </Typography>
+            <Typography paragraph={true} mb={0}>
+              Degree: Master
+            </Typography>
+            <Typography paragraph={true}>Subject: Science</Typography>
           </Grid>
         </Grid>
       </Grid>

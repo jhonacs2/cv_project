@@ -11,7 +11,7 @@ export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
     lastName: '',
     title: '',
     address: '',
-    phoneNumber: '',
+    phone: '',
     email: '',
   });
 
@@ -84,7 +84,7 @@ export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
           label='Phone Number'
           variant='standard'
           autoComplete='off'
-          name='phoneNumber'
+          name='phone'
           value={phoneNumber}
           onChange={handleInputChange}
         />

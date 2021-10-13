@@ -1,9 +1,10 @@
 import { Divider, Grid, Typography } from '@mui/material';
 
 import React from 'react';
+import { Educations } from './view/Educations';
+import { Experiences } from './view/Experiences';
 
-export const CvPreview = ({ personalInfo }) => {
-  console.log(personalInfo);
+export const CvPreview = ({ personalInfo, experience, education }) => {
   return (
     <Grid item container p={2} sm={12}>
       <Grid
@@ -24,15 +25,7 @@ export const CvPreview = ({ personalInfo }) => {
         <Typography variant='h5'>Description</Typography>
         <Divider></Divider>
         <Typography variant='p' component='div' align='justify'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum
-          suscipit est. Vestibulum augue enim, pharetra a tempus ut, bibendum id
-          leo. Aliquam vel ipsum scelerisque, commodo lectus in, ultrices erat.
-          Aenean placerat pulvinar magna, a varius velit imperdiet ut. Phasellus
-          semper mauris quis magna hendrerit lacinia. Nullam tincidunt ac justo
-          efficitur auctor. Vestibulum ut sem scelerisque, varius mauris in,
-          eleifend enim. Proin semper eleifend lectus at blandit. Vivamus quis
-          dapibus nulla. Fusce non accumsan dolor. Vivamus dictum justo at lacus
-          volutpat, a dignissim nulla commodo.
+          {personalInfo.description}
         </Typography>
       </Grid>
       <Grid item sm={3} p={2}>
@@ -65,60 +58,17 @@ export const CvPreview = ({ personalInfo }) => {
       <Grid item sm={9} p={2}>
         <Typography variant='h5'>Experience</Typography>
         <Divider></Divider>
-        <Grid container>
-          <Grid item sm={4}>
-            <p>2015 - Present</p>
-          </Grid>
-          <Grid item sm={8}>
-            <Typography
-              paragraph={true}
-              mt={2}
-              mb={0}
-              style={{ fontWeight: 600 }}
-            >
-              Senior Web Developer
-            </Typography>
-            <Typography paragraph={true}>Facebook Inc</Typography>
-          </Grid>
-
-          <Grid item sm={4}>
-            <p>2015 - Present</p>
-          </Grid>
-          <Grid item sm={8}>
-            <Typography
-              paragraph={true}
-              mt={2}
-              mb={0}
-              style={{ fontWeight: 600 }}
-            >
-              Senior Web Developer
-            </Typography>
-            <Typography paragraph={true}>Facebook Inc</Typography>
-          </Grid>
-        </Grid>
+        {experience.map((value) => (
+          <Experiences key={value.id} exp={value} />
+        ))}
       </Grid>
+
       <Grid item sm={9} p={2}>
         <Typography variant='h5'>Education</Typography>
         <Divider></Divider>
-        <Grid container>
-          <Grid item sm={4}>
-            <p>2008 - 2010</p>
-          </Grid>
-          <Grid item sm={8}>
-            <Typography
-              paragraph={true}
-              mt={2}
-              mb={0}
-              style={{ fontWeight: 600 }}
-            >
-              Universisad del Valle, La Paz
-            </Typography>
-            <Typography paragraph={true} mb={0}>
-              Degree: Master
-            </Typography>
-            <Typography paragraph={true}>Subject: Science</Typography>
-          </Grid>
-        </Grid>
+        {education.map((value) => (
+          <Educations key={value.id} edu={value} />
+        ))}
       </Grid>
     </Grid>
   );

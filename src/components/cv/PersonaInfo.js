@@ -4,7 +4,7 @@ import { useForm } from '../../hooks/userForm';
 
 export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
   const [
-    { name, lastName, title, address, phoneNumber, email },
+    { name, lastName, title, address, phoneNumber, email, description },
     handleInputChange,
   ] = useForm({
     name: '',
@@ -13,6 +13,7 @@ export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
     address: '',
     phone: '',
     email: '',
+    description: '',
   });
 
   const handleInputInfor = (e) => {
@@ -98,6 +99,19 @@ export const PersonaInfo = ({ setPersonalInfo, personalInfo }) => {
           autoComplete='off'
           name='email'
           value={email}
+          onChange={handleInputChange}
+        />
+      </Grid>
+      <Grid item xs={8}>
+        <TextField
+          multiline
+          rows={4}
+          fullWidth
+          id='standard-basic'
+          label='Description'
+          variant='standard'
+          name='description'
+          value={description}
           onChange={handleInputChange}
         />
       </Grid>

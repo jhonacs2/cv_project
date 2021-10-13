@@ -6,12 +6,13 @@ import { HeaderAppBar } from './HeaderAppBar';
 
 export const MainCv = () => {
   const [personalInfo, setPersonalInfo] = useState({
-    name: '',
-    lastName: '',
-    title: '',
-    address: '',
-    phone: '',
-    email: '',
+    name: '-',
+    lastName: '-',
+    title: '-',
+    address: '-',
+    phone: '-',
+    email: '-',
+    description: '-',
   });
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
@@ -37,7 +38,11 @@ export const MainCv = () => {
           </Grid>
           <Grid item xs={12} sm={12} md={5} mt={2}>
             <Paper>
-              <CvPreview personalInfo={personalInfo} />
+              <CvPreview
+                personalInfo={personalInfo}
+                experience={experience}
+                education={education}
+              />
             </Paper>
           </Grid>
           <Grid item xs={false} sm={false} md={1} />

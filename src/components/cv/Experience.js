@@ -8,11 +8,11 @@ export const Experience = ({ experience, setExperience }) => {
   const handleInputExperience = () => {
     const newExperience = {
       id: numberRandom(),
-      position: '',
-      company: '',
-      city: '',
-      from: '',
-      to: '',
+      position: '-',
+      company: '-',
+      city: '-',
+      from: '-',
+      to: '-',
     };
     setExperience(experience.concat(newExperience));
   };

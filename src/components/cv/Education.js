@@ -7,12 +7,12 @@ export const Education = ({ education, setEducation }) => {
   const handleInputEducation = () => {
     const newEducation = {
       id: numberRandom(),
-      universityname: '',
-      city: '',
-      degree: '',
-      subject: '',
-      from: '',
-      to: '',
+      universityname: '-',
+      city: '-',
+      degree: '-',
+      subject: '-',
+      from: '-',
+      to: '-',
     };
     setEducation(education.concat(newEducation));
   };
